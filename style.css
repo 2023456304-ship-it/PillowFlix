@@ -1,0 +1,689 @@
+
+/* --- GAYA ASAS --- */
+body { 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    margin: 0; 
+    background-color: #000; 
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* GAYA UNTUK SEMUA TAJUK PAGE */
+.page h2 {
+    font-size: 2.5rem;          /* Besarkan tulisan (lagi besar nilai, lagi besar huruf) */
+    text-align: center;         /* Bagi tulisan duduk tengah */
+    text-transform: uppercase;  /* Paksa jadi huruf besar semua */
+    color: #fff;                /* Warna putih */
+    margin-bottom: 30px;        /* Jarak antara tajuk dengan content bawah */
+    letter-spacing: 5px;        /* Jarakkan huruf supaya nampak lebih 'cinematic' */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8); /* Tambah shadow supaya nampak jelas */
+}
+/* Video Background */
+.bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: brightness(60%) contrast(110%);
+}
+
+.page { display: none; padding: 20px; min-height: 100vh; }
+.active { display: block; }
+
+/* --- LOGIN GLASSMORPHISM --- */
+.login-container {
+    max-width: 320px;
+    margin: 100px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: 15px;
+}
+
+.login-container h1 { color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+.login-container input { 
+    display: block; width: 100%; margin: 15px 0; padding: 12px; 
+    border-radius: 5px; border: none; outline: none;
+}
+
+/* --- HEADER & NAV (DIKEMASKINI DENGAN EFFECT) --- */
+header { 
+    display: flex; justify-content: space-between; align-items: center; 
+    background: #FFD700; padding: 20px; border-bottom: 3px solid #000;
+}
+
+nav a { 
+    cursor: pointer; 
+    margin-left: 20px; 
+    font-weight: bold; 
+    text-decoration: none; 
+    color: #000;
+    position: relative; /* Penting untuk effect garisan */
+    padding: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Effect bila letak mouse atas menu */
+nav a:hover {
+    color: #fff; /* Warna tukar putih bila hover */
+    text-shadow: 2px 2px 0px #000;
+}
+
+/* Garisan bawah yang muncul dari tengah */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -2px;
+    left: 50%;
+    background-color: #000;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 100%; /* Garisan memanjang penuh */
+}
+
+/* Effect butang ditekan */
+nav a:active {
+    transform: scale(0.9);
+}
+
+/* --- GENRE BUTTONS --- */
+.genres { margin-bottom: 30px; text-align: center; margin-top: 20px;}
+.genres button { 
+    padding: 8px 20px; margin: 5px; border-radius: 25px; 
+    border: 2px solid #000; cursor: pointer; font-weight: bold;
+    transition: 0.3s;
+}
+.genres button:hover { background: #000; color: #fff; transform: scale(1.1); }
+
+/* --- MOVIE GRID --- */
+.video-grid { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; margin: 20px auto; }
+.video-card { 
+    width: 400px; background: #B8860B; border: 2px solid #333; 
+    cursor: pointer; transition: 0.3s; 
+}
+.video-card:hover { transform: translateY(-5px); box-shadow: 5px 5px 0px #000; }
+
+/* --- SLIDER DENGAN SCROLL MANUAL --- */
+.slider-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Membolehkan scroll ke tepi guna mouse/touchpad */
+    overflow-y: hidden;
+    padding: 20px 0;
+    scroll-behavior: smooth; /* Bagi nampak smooth bila scroll */
+    
+    /* Scroll Snap - Supaya kotak filem "lekat" di tengah bila scroll */
+    scroll-snap-type: x mandatory; 
+	
+	
+}
+
+/* Sembunyikan scrollbar supaya nampak kemas (Optional) */
+.slider-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.movie-slider {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+    width: max-content; /* Paksa barisan jadi sepanjang mungkin ke tepi */
+}
+
+.slider-item {
+    flex: 0 0 280px; /* Lebar tetap kotak filem */
+    min-width: 280px;
+    scroll-snap-align: start; /* Titik "lekat" snap */
+    background: #87CEFA;
+    border: 2px solid #000;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.slider-item:hover {
+    transform: scale(1.05); /* Effect bila letak mouse atas kotak */
+    z-index: 5;
+}
+.thumbnail { height: 250px; background: #000; border-bottom: 2px solid #000; }
+.thumbnail video { width: 100%; height: 100%; object-fit: cover; }
+.card-info { padding: 15px; text-align: center; color: #000; }
+
+/* --- 7. ARTIST SECTION --- */
+.artist-list { 
+    display: flex; 
+    gap: 25px; 
+    justify-content: center; 
+    overflow-x: auto; 
+    padding: 20px; 
+}
+
+.artist-item { 
+    text-align: center; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    color: white; 
+    min-width: 120px; 
+}
+
+.circle { 
+    width: 120px; 
+    height: 120px; 
+    border-radius: 50%; 
+    border: 3px solid #FFFAFA; /* Warna hijau tema anda */
+    background-size: cover; 
+    background-position: center; 
+    transition: 0.3s; 
+    margin: 0 auto 8px; 
+}
+
+/* Effect bila mouse lalu (Hover) */
+.artist-item:hover .circle { 
+    transform: translateY(-8px) scale(1.05); 
+    box-shadow: 0px 10px 20px rgba(128, 227, 147, 0.5); 
+}
+
+.artist-item:hover p { 
+    color: #80E393; 
+    font-weight: bold; 
+}
+
+.artist-item p {
+    margin: 10px 0 0;
+    font-size: 1em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* --- 7. ARTIST & SONGS (SAMBUNGAN) --- */
+.song-list-container { 
+    max-width: 800px; 
+    margin: 20px auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.song-card { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    background: #DC143C; 
+    border: 2px solid #333; 
+    padding: 12px 25px; 
+    transition: 0.3s; 
+}
+
+.song-card:hover { 
+    transform: translateX(10px); 
+    box-shadow: 5px 5px 0px #000; 
+}
+
+.song-info { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+.song-cover { 
+    width: 60px; 
+    height: 60px; 
+    background: #000; 
+    background-size: cover; 
+    border: 2px solid #333; 
+}
+
+.song-text { 
+    display: flex; 
+    flex-direction: column; 
+    text-align: left; 
+}
+
+.song-title { 
+    font-weight: bold; 
+    font-size: 1.1em; 
+    color: #000; 
+}
+
+.song-artist { 
+    color: #444; 
+    font-size: 0.9em; 
+}
+
+/* --- 8. BUTTONS & PLAY CONTROLS --- */
+.play-btn {
+    background-color: #000; 
+    color: #FFD700; 
+    border: 2px solid #000; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    border-radius: 5px; 
+    transition: 0.3s;
+}
+
+.play-btn:hover {
+    background-color: #FFFAFA; 
+    color: #000; 
+    box-shadow: 4px 4px 0px #333;
+}
+
+.btn-main {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background: #B8860B;
+    color: #000;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-main:hover {
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* --- 9. STAR RATING --- */
+.star-rating { 
+    display: flex; 
+    flex-direction: row-reverse; 
+    justify-content: flex-end; 
+    font-size: 2.0em; 
+    padding: 10px 0; 
+}
+
+.star-rating input { display: none; }
+
+.star-rating label { 
+    color: #ccc; 
+    cursor: pointer; 
+    transition: color 0.2s ease-in-out; 
+}
+
+.star-rating label:hover, 
+.star-rating label:hover ~ label { color: #ffca08; }
+
+.star-rating input:checked ~ label { 
+    color: #ffd700; 
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4); 
+}
+
+/* --- 10. DETAIL PAGE ELEMENTS --- */
+#m-poster {
+    width: 200px; 
+    height: auto; 
+    background-color: #ccc; 
+    border: 2px solid #000;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden;
+}
+
+#m-poster img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+#commentInput {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+/* --- 11. FOOTER --- */
+footer {
+    background-color: #800000;
+    color: #000;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 3px solid #000;
+    font-weight: bold;
+    width: 100%;
+    margin-top: auto; /* Memastikan footer ditolak ke bawah */
+}
+
+/* --- FIX UNTUK BUTANG ANAK PANAH --- */
+
+/* 1. Container mesti 'relative' supaya butang tahu kat mana nak melekat */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center; /* Bagi butang & slider sebaris secara menegak */
+    width: 100%;
+}
+
+/* 2. Gaya butang anak panah supaya terapung (position: absolute) */
+.arrow-btn {
+    position: absolute; 
+    top: 50%; /* Letak kat tengah tinggi slider */
+    transform: translateY(-50%); /* Adjust bagi center betul-betul */
+    z-index: 10; /* Biar dia duduk atas video */
+    
+    border: 2px solid #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.arrow-btn:hover {
+    background: #fff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* 3. Kedudukan spesifik butang Kiri & Kanan */
+.arrow-btn.left {
+    left: 10px; /* Jarak sikit dari tepi kiri */
+	background: #FFFAFA;
+}
+
+.arrow-btn.right {
+    right: 10px; /* Jarak sikit dari tepi kanan */
+	background: #FFFAFA
+}
+
+/* Kotak thumbnail jadi tegak (Portrait) */
+.portrait-mode {
+    position: relative;
+    height: 350px; /* Anda boleh laras ketinggian ini */
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Gambar poster memenuhi kotak */
+.poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Video trailer ikut saiz kotak tapi disorokkan */
+.trailer-video {
+    display: none; /* Sorok video dulu */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay ikon play di tengah */
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    color: rgba(255, 255, 255, 0.8);
+    pointer-events: none; /* Supaya tak kacau klik */
+}
+
+/* Bila video dimainkan, sorokkan poster & overlay */
+.playing .poster-img, .playing .play-overlay {
+    display: none;
+}
+
+.playing .trailer-video {
+    display: block;
+}
+
+//* =========================================
+   KOD SLIDESHOW MEET THE CREATORS (CLEAN VERSION)
+   ========================================= */
+
+/* 1. RESET UNTUK PAGE CREATORS */
+#creators-page { 
+    padding: 0 !important; /* Buang padding 20px yang tolak slideshow ke kiri */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 2. CONTAINER SLIDESHOW - BAGI DIA DUDUK TENAH */
+.creators-slideshow-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto; /* Margin auto ni yang bagi seimbang kiri kanan */
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #000;
+    line-height: 0;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* 3. SETIAP SLIDE */
+.mySlides {
+    display: none;
+    width: 100% !important;
+}
+
+/* 4. VIDEO - JANGAN LETAK 200%! */
+.creator-vid {
+    width: 100% !important; /* Paksa ikut lebar container 1000px tadi */
+    height: 320px;         /* Kau boleh adjust tinggi ni */
+    object-fit: cover;      /* Supaya video penuh tanpa penyek */
+    display: block;
+    margin: 0;
+}
+
+/* 5. TULISAN NAMA ATAS VIDEO */
+.creator-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 30px;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box; /* PENTING: Supaya padding tak tolak lebar kotak */
+    line-height: normal;
+}
+
+/* 6. BUTANG NAVIGASI */
+.prev-slide, .next-slide {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    z-index: 10;
+    user-select: none;
+    transition: 0.3s;
+}
+
+.next-slide { right: 20px; }
+.prev-slide { left: 20px; }
+
+.prev-slide:hover, .next-slide:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 7. ANIMASI FADE */
+.fade {
+    animation: fadeAnim 1.2s ease-in-out;
+}
+
+@keyframes fadeAnim {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* --- WARNA PETAK MOVIE YG IKUT GENRE --- */
+
+/* Semua movie dalam genre RomCom */
+#genre-romcom .card-info {
+    background-color: #FF00FF !important; /* Warna Pink */
+    color: #000 !important;
+}
+
+/* Semua movie dalam genre Action */
+#genre-action .card-info {
+    background-color: #FF4500 !important; /* Warna Merah Oren */
+    color: #fff !important;
+}
+
+/* Semua movie dalam genre Horror */
+#genre-horror .card-info {
+    background-color: #4B0082 !important; /* Warna Ungu Gelap */
+    color: #fff !important;
+}
+
+/* Semua movie dalam genre Vintage */
+#genre-vintage .card-info {
+    background-color: #8B4513 !important; /* Warna Coklat Klasik */
+    color: #fff !important;
+}
+
+/* Semua movie dalam genre Kids */
+#genre-kids .card-info {
+    background-color: #ADFF2F !important; /* Warna Hijau Muda */
+    color: #000 !important;
+}
+
+/* Semua movie dalam genre Drama */
+#genre-drama .card-info {
+    background-color: #FFD700 !important; /* Warna Kuning Emas */
+    color: #000 !important;
+}
+
+/* Bila video tengah main, sembunyikan poster */
+.thumbnail.playing .poster-img {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Pastikan video duduk tepat kat tempat poster */
+.trailer-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Video kat bawah ikon Play */
+}
+
+/* Pastikan ikon Play sentiasa kat depan tapi tak kacau klik */
+.play-overlay {
+    z-index: 2;
+    pointer-events: none; 
+}
+
+//* --- FIX VIDEO TRAILER FULL SCREEN --- */
+
+/* Bila thumbnail ada class .playing */
+.thumbnail.playing {
+    position: relative;
+    z-index: 99999 !important;
+}
+
+/* Paksa video keluar jadi besar melintang */
+.thumbnail.playing .trailer-video {
+    display: block !important;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90vw !important; /* Lebar 90% skrin laptop */
+    max-width: 1000px !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important; /* Paksa bentuk landscape TV */
+    object-fit: contain !important; /* Supaya gambar video tak penyek */
+    z-index: 100000 !important;
+    background: #000;
+    border: 5px solid #FFD700;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(0,0,0,1);
+}
+
+/* Background hitam pekat untuk tutup website kat belakang */
+.thumbnail.playing::after {
+    content: "";
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    z-index: 99999 !important;
+    pointer-events: all;
+}
+
+/* --- STYLE VIDEO SEBIJI MACAM TOP 3 --- */
+
+/* Video asalnya sorok */
+.trailer-video {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bila video tengah main (ada class .playing), dia muncul */
+.trailer-video.playing {
+    display: block !important;
+}
+
+/* Sorok ikon play overlay yang manual tu */
+.play-overlay {
+    display: none !important;
+}
+
+/* Sembunyikan video selagi tak klik poster */
+.trailer-video {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Munculkan video bila class .playing ditambah */
+.trailer-video.playing {
+    display: block !important;
+}
+
+/* Sorokkan ikon play manual (segitiga putih) sebab kita nak guna butang ori browser */
+.play-overlay {
+    display: none !important;
+}
