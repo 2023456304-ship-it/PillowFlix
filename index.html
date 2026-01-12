@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PillowFlix - Streaming Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <video autoplay muted loop playsinline id="bgVideo" class="bg-video">
+        <source id="videoSource" src="login.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="login-page" class="page active">
+        <div class="login-container">
+            <h1>PillowFlix</h1>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button class="btn-main" onclick="doLogin()">LOGIN</button>
+        </div>
+    </div>
+
+    <div id="main-content" style="display:none;">
+        <header>
+            <h1 onclick="showPage('homepage')" style="cursor:pointer">PillowFlix</h1>
+            <nav>
+                <a onclick="showPage('homepage')">Home</a>
+                <a onclick="showPage('about-page')">About Us</a>
+                <a onclick="showPage('help-page')">Help</a>
+                <a onclick="showPage('creators-page')">Meet the Creators</a>
+            </nav>
+        </header>
+
+        <section class="genres">
+            <button onclick="showPage('genre-romcom')">RomCom</button>
+            <button onclick="showPage('genre-action')">Action</button>
+            <button onclick="showPage('genre-horror')">Horror</button>
+            <button onclick="showPage('genre-vintage')">Vintage</button>
+            <button onclick="showPage('genre-kids')">Kids</button>
+            <button onclick="showPage('genre-drama')">Drama</button>
+        </section>
+		
+<!-- GENRE ROMCOM -->
+<div id="genre-romcom" class="page">
+    <h2 style="color: white; text-align: center; text-transform: uppercase;">RomCom</h2>
+    <div class="slider-container">
+        <button class="arrow-btn left" onclick="moveInfinite('romcom-slider', -1)">&#10094;</button>
+        
+        <div class="slider-wrapper">
+            <div id="romcom-slider" class="movie-slider">
+                
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="cun1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="cun.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Cun!', 'cun2.jpg')"><b>Cun!</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="duyung1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="duyung.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Duyung', 'duyung2.jpg')"><b>Duyung</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="love1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="love.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Love Again', 'love2.jpg')"><b>Love Again</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="istanbul1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="istanbul.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Istanbul Aku Datang', 'istanbul2.jpg')"><b>Istanbul Aku Datang</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="howto1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="howto.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('How to Lose a Guy in 10 Days', 'howto2.jpg')"><b>How to Lose a Guy in 10 Days</b></div>
+                </div>
+
+            </div> </div> <button class="arrow-btn right" onclick="moveInfinite('romcom-slider', 1)">&#10095;</button>
+    </div> </div> 
+
+
+<!-- GENRE ACTION -->
+<div id="genre-action" class="page">
+    <h2 style="color: white; text-align: center; text-transform: uppercase;">Action</h2>
+    <div class="slider-container">
+        <button class="arrow-btn left" onclick="moveInfinite('action-slider', -1)">&#10094;</button>
+        
+        <div class="slider-wrapper">
+            <div id="action-slider" class="movie-slider">
+                
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="argy1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="argy.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Argylle', 'argy2.jpg')"><b>Argylle</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="police1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="police.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Police Story 3', 'police2.jpg')"><b>Police Story 3</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="sheriff1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="sheriff.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Sheriff', 'sheriff2.jpg')"><b>Sheriff</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="blood1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="blood.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Blood Brothers', 'blood2.jpg')"><b>Blood Brothers</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="paskal1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="paskal.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('PASKAL', 'paskal2.jpg')"><b>PASKAL</b></div>
+                </div>
+
+            </div> </div> <button class="arrow-btn right" onclick="moveInfinite('action-slider', 1)">&#10095;</button>
+    </div> </div> 
+
+<!-- GENRE HORROR -->
+<div id="genre-horror" class="page">
+    <h2 style="color: white; text-align: center; text-transform: uppercase;">Horror</h2>
+    <div class="slider-container">
+        <button class="arrow-btn left" onclick="moveInfinite('horror-slider', -1)">&#10094;</button>
+        
+        <div class="slider-wrapper">
+            <div id="horror-slider" class="movie-slider">
+                
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="talktome1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="talktome.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Talk to Me', 'talktome2.jpg')"><b>Talk to Me</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="conjuring1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="conjuring.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('The Conjuring', 'conjuring2.jpg')"><b>The Conjuring</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="evil1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="evil.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Evil Dead Rise', 'evil2.jpg')"><b>Evil Dead Rise</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="texas1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="texas.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Texas Chainsaw Massacre', 'texas2.jpg')"><b>Texas Chainsaw Massacre</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="dollhouse1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="dollhouse.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Dollhouse', 'dollhouse2.jpg')"><b>Dollhouse</b></div>
+                </div>
+
+            </div> </div> <button class="arrow-btn right" onclick="moveInfinite('horror-slider', 1)">&#10095;</button>
+    </div> </div> ```
+
+
+<!-- GENRE VINTAGE -->
+<div id="genre-vintage" class="page">
+    <h2 style="color: white; text-align: center; text-transform: uppercase;">Vintage</h2>
+    <div class="slider-container">
+        <button class="arrow-btn left" onclick="moveInfinite('vintage-slider', -1)">&#10094;</button>
+        
+        <div class="slider-wrapper">
+            <div id="vintage-slider" class="movie-slider">
+                
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="pride1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="pride.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie(Pride & Prejudice', 'pride2.jpg')"><b>Pride & Prejudice</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="titanic1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="titanic.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Titanic', 'titanic2.jpg')"><b>Titanic</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="casablanca1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="casablanca.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Casablanca', 'casablanca2.jpg')"><b>Casablanca</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="xxx1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="xxx.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('XXX', 'xxx2.jpg')"><b>XXX</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="break1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="break.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Breakfast at Tiffany's', 'break2.jpg')"><b>Breakfast at Tiffany's</b></div>
+                </div>
+
+            </div> </div> <button class="arrow-btn right" onclick="moveInfinite('vintage-slider', 1)">&#10095;</button>
+    </div> </div> 
+
+
+<!-- GENRE KIDS -->
+<div id="genre-kids" class="page">
+    <h2 style="color: white; text-align: center; text-transform: uppercase;">Kids</h2>
+    <div class="slider-container">
+        <button class="arrow-btn left" onclick="moveInfinite('kids-slider', -1)">&#10094;</button>
+        
+        <div class="slider-wrapper">
+            <div id="kids-slider" class="movie-slider">
+                
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="sponge1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="sponge.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie(The Spongebob Movie', 'sponge2.jpg')"><b>The Spongebob Movie</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="wonder1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="wonder.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Go, Wonder Pets', 'wonder2.jpg')"><b>Go, Wonder Pets!</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="winx1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="winx.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Winx Club', 'winx2.jpg')"><b>Winx Club</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="doraemon1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="doraemon.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Stand By Me Doraemon',  'doraemon2.jpg')"><b>Stand By Me Doraemon</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="sluga1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="sluga.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Slugterra', 'sluga2.jpg')"><b>Slugterra</b></div>
+                </div>
+
+            </div> </div> <button class="arrow-btn right" onclick="moveInfinite('kids-slider', 1)">&#10095;</button>
+    </div> </div> 
+
+
+<!-- GENRE DRAMA -->
+<div id="genre-drama" class="page">
+    <h2 style="color: white; text-align: center; text-transform: uppercase;">Drama</h2>
+    <div class="slider-container">
+        <button class="arrow-btn left" onclick="moveInfinite('drama-slider', -1)">&#10094;</button>
+        
+        <div class="slider-wrapper">
+            <div id="drama-slider" class="movie-slider">
+                
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="study1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="study.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie(Study Group', 'study2.jpg')"><b>Study Group</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="bon1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="bon.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Bon Appetit, Your Majesty', 'bon2.jpg')"><b>Bon Appetit, Your Majesty</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="tange1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="tange.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('When Life Gives you Tangerines', 'tange2.jpg')"><b>When Life Gives you Tangerines</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="dear1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="dear.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Dear X',  dear2.jpg')"><b>Dear X</b></div>
+                </div>
+
+                <div class="video-card slider-item">
+                    <div class="thumbnail portrait-mode">
+                        <img src="hero1.jpg" class="poster-img" alt="Movie Poster">
+                        <video class="trailer-video" controls><source src="trauma.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('The Trauma Code Heroes on Call', 'hero2.jpg')"><b>The Trauma Code Heroes on Call</b></div>
+                </div>
+
+            </div> </div> <button class="arrow-btn right" onclick="moveInfinite('drama-slider', 1)">&#10095;</button>
+    </div> </div> 
+
+<!-- PART MEET THE CREATORS -->
+<div id="creators-page" class="page">
+    <h2 style="color: white; text-align: center; text-transform: uppercase;">Meet the Creators</h2>
+    <div class="creators-slideshow-container">
+        <div class="mySlides fade">
+            <video class="creator-vid" autoplay muted loop playsinline>
+                <source src="creators.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+</div>
+	
+        <div id="homepage" class="page">
+            <h2 style="color: white; text-align: center; text-shadow: 2px 2px 4px #000;">Top 3 This Week</h2>
+            <div class="video-grid">
+               <div class="video-card">
+                    <div class="thumbnail">
+                        <video controls poster="avatar.jpg" preload="none">
+                            <source src="avatar.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Avatar Fire and Ash', 'avatar2.jpg')"><b>Avatar Fire and Ash</b><br>Action/Fantasy</div>
+                </div>
+
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <video controls poster="papa.jpg" preload="none">
+                            <source src="papa.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Papa Zola The Movie', 'papa2.jpg')"><b>Papa Zola The Movie</b><br>Action/Comedy</div>
+                </div>
+
+                <div class="video-card">
+                    <div class="thumbnail">
+                        <video controls poster="zootopia.jpg" preload="none">
+                            <source src="zootopia.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="card-info" onclick="openMovie('Zootopia 2', 'zootopia2.jpg')"><b>Zootopia 2</b><br>Comedy/Family</div>
+                </div>
+            </div>
+
+            <section style="margin-top:40px;">
+                <h2 style="color: white; text-align: center; text-shadow: 2px 2px 4px #000;">Popular Artist</h2>
+                <div class="artist-list">
+                    <div class="artist-item" onclick="goWiki('Tom Cruise')">
+                        <div class="circle" style="background-image: url('tom.jpg');"></div>
+                        <p>Tom Cruise</p>
+                    </div>
+                    <div class="artist-item" onclick="goWiki('Emma Watson')">
+                        <div class="circle" style="background-image: url('emma.jpg');"></div>
+                        <p>Emma Watson</p>
+                    </div>
+                    <div class="artist-item" onclick="goWiki('Henry Cavill')">
+                        <div class="circle" style="background-image: url('henry.jpg');"></div>
+                        <p>Henry Cavill</p>
+                    </div>
+                    <div class="artist-item" onclick="goWiki('Zoe Saldaña')">
+                        <div class="circle" style="background-image: url('zoe.jpg');"></div>
+                        <p>Zoe Saldaña</p>
+                    </div>
+					<div class="artist-item" onclick="goWiki('Cate Blanchett')">
+                        <div class="circle" style="background-image: url('cate.jpg');"></div>
+                        <p>Cate Blanchett</p>
+                    </div>
+					<div class="artist-item" onclick="goWiki('Saoirse Ronan')">
+                        <div class="circle" style="background-image: url('sao.jpg');"></div>
+                        <p>Saoirse Ronan</p>
+                    </div>
+					<div class="artist-item" onclick="goWiki('Bill Skarsgård')">
+                        <div class="circle" style="background-image: url('bill.jpg');"></div>
+                        <p>Bill Skarsgård</p>
+                    </div>
+					<div class="artist-item" onclick="goWiki('Jamie Campbell Bower')">
+                        <div class="circle" style="background-image: url('jamie.jpg');"></div>
+                        <p>Jamie Campbell Bower</p>
+                    </div>
+                </div>
+            </section>
+
+<!-- PART TOP THREE LAGU -->
+            <section style="margin-top:60px; padding-bottom: 50px;">
+                <h2 style="color: white; text-align: center; text-shadow: 2px 2px 4px #000;">Top Songs This Week</h2>
+                <div class="song-list-container">
+                    <div class="song-card">
+                        <div class="song-info">
+                            <div class="song-cover" style="background-image: url('singer1.jpg');"></div>
+                            <div class="song-text">
+                                <span class="song-title">Kita Usahakan Lagi</span>
+                                <span class="song-artist">Batas Senja</span>
+                            </div>
+                        </div>
+                        <button class="play-btn" onclick="playAudio('song1.mp3', this)">▶ PLAY</button>
+                    </div>
+					 <div class="song-card">
+                        <div class="song-info">
+                            <div class="song-cover" style="background-image: url('singer2.jpg');"></div>
+                            <div class="song-text">
+                                <span class="song-title">Dream as One</span>
+                                <span class="song-artist">Miley Cyrus</span>
+                            </div>
+                        </div>
+                        <button class="play-btn" onclick="playAudio('song2.mp3', this)">▶ PLAY</button>
+                    </div>
+					 <div class="song-card">
+                        <div class="song-info">
+                            <div class="song-cover" style="background-image: url('singer3.jpg');"></div>
+                            <div class="song-text">
+                                <span class="song-title">Say Yes</span>
+                                <span class="song-artist">Loco,Punch</span>
+                            </div>
+                        </div>
+                        <button class="play-btn" onclick="playAudio('song3.mp3', this)">▶ PLAY</button>
+                    </div>
+                    </div>
+            </section>
+        </div>
+
+<!-- PART TENTANG COMPANY -->
+        <div id="about-page" class="page">
+            <h2 style="color: white; text-align: center;">About PillowFlix</h2>
+            <p style="color: white; text-align: center;">Your ultimate destination for relaxing and streaming your favorite movies.</p>
+        </div>
+
+<!-- PART HELP SUPPORT -->
+        <div id="help-page" class="page">
+            <h2 style="color: white; text-align: center;">Help Center</h2>
+            <p style="color: white; text-align: center;">Need help? Contact us at support@pillowflix.com</p>
+        </div>
+
+<div id="detail-page" class="page" style="display:none;">
+    <button onclick="showPage('homepage')" class="btn-main" style="width:auto; margin-bottom:10px;">Back</button>
+    
+    <div style="display:flex; gap:30px; margin-top:20px; background:rgba(255,255,255,0.9); padding:20px; border:2px solid #000; border-radius:10px; color: black;">
+        
+        <div id="m-poster" style="width:200px; height:300px; background:#ccc; border:2px solid #000; overflow:hidden; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <img id="movie-img" src="" alt="Movie Poster" style="width:100%; height:100%; object-fit:cover; display:none;">
+            <span id="poster-placeholder" style="font-size:2em; color:#666;">IMG</span>
+        </div>
+        
+        <div style="flex:1">
+            <h2 id="m-title" style="margin-top:0;">Title</h2>
+            
+            <div style="margin: 10px 0;">
+                <h4 style="margin-bottom:5px; color:#333;">Synopsis:</h4>
+                <p id="m-synopsis" style="font-size: 0.95em; line-height: 1.5; color: #444; background: #f0f0f0; padding: 10px; border-radius: 5px; text-align: justify;  white-space: pre-line;">
+                    Movie description will appear here...
+                </p>
+            </div>
+
+            <div style="margin-top:20px; border-top: 1px solid #ccc; padding-top: 15px;">
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                </div>
+                
+                <textarea id="commentInput" placeholder="Write a review..." style="width:100%; height:80px; margin-top:10px; padding:10px; border: 1px solid #000; border-radius: 5px;"></textarea>
+                <br>
+                <button class="btn-main" style="width:auto; padding:10px 30px; margin-top:10px;" onclick="addComment()">Submit</button>
+                
+                <div id="comments-list" style="margin-top:20px; max-height: 150px; overflow-y: auto;">
+                    </div>
+            </div>
+        </div> </div> </div> </div> 
+
+<footer>
+    <p class="copyright-text">© 2026 PillowFlix Movie Review Platform. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
